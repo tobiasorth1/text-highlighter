@@ -1,39 +1,54 @@
-# Text Highlighter
+# Text Highlighter for VSCode
 
-A VSCode extension to highlight text based on custom rules (string literals or regex) with configurable colors.
+**Highlight what matters.** Instantly spot TODOs, critical errors, and custom patterns in your code.
+
+![picture](project_icon_small.jpg)
+
+
+## Why Text Highlighter?
+
+Stop scanning through thousands of lines of code to find that one `NOTE` or `FIXME`. Text Highlighter lets you define custom rules to make important text pop out.
+
+- 🎯 **Never miss a TODO**: Make them bright red, neon green, or whatever catches your eye.
+- 🔍 **Regex Power**: Highlight complex patterns like email addresses, error codes, or specific variable naming conventions.
+- 🚦 **Instant Feedback**: See matches in your Problems tab so you can navigate to them instantly.
+- 🎨 **Fully Customizable**: Control background colors, text colors, and even add custom messages.
 
 ## Features
 
-- Highlight multiple patterns with different background colors.
-- **Diagnostics**: Matches are reported in the Problems tab (whole line).
-- **Configurable Severity**: Set diagnostic severity (error, warning, information, hint).
-- **Custom Messages**: Define custom problem messages for each rule.
-- Support for Regular Expressions.
-- Customizable background colors (text color remains unchanged by default).
+- **Multi-Pattern Highlighting**: Define unlimited rules with unique colors.
+- **Problem Tab Integration**: Matches appear as Errors, Warnings, Info, or Hints.
+- **Case-Insensitive Matching**: By default (configurable).
+- **Performance Focused**: Optimized for large files.
 
-## Configuration
+## Quick Start
 
-Add the following to your `settings.json`:
+Add this to your `settings.json` to get started immediately:
 
 ```json
 "textHighlighter.rules": [
   {
     "pattern": "TODO",
-    "backgroundColor": "rgba(249, 4, 4, 0.98)",
+    "backgroundColor": "rgba(255, 200, 0, 0.5)",
     "problemMessage": "TODO item found",
-    "severity": "error",
-    "languages": ["python", "javascript", "typescript"],
-    "isRegex": false,
-    "isCaseSensitive": true
+    "severity": "warning",
+    "languages": ["*"]
   },
   {
-    "pattern": "\\b(note|info)\\b",
-    "backgroundColor": "blue",
-    "problemMessage": "Note or Info",
-    "severity": "information",
+    "pattern": "FIXME",
+    "backgroundColor": "rgba(255, 0, 0, 0.6)",
+    "color": "#FFFFFF",
+    "severity": "error",
     "languages": ["*.md", "*.txt"],
+    "isRegex": true
+  },
+  {
+    "pattern": "^.{73,}$",
+    "backgroundColor": "#FF000050",
+    "problemMessage": "Line exceeds 72 characters",
+    "severity": "error",
     "isRegex": true,
-    "isCaseSensitive": false
+    "languages": ["plaintext"]
   }
 ]
 ```
@@ -54,7 +69,6 @@ Add the following to your `settings.json`:
 
 **Regex Tips:**
 - Use `^` and `$` for line anchors (multiline mode is enabled)
-- Be careful with complex regex patterns (e.g., nested quantifiers) as they can impact performance on large files.
 - For lines longer than 72 chars: `^.{73,}$`
 - For matching at start of line: `^pattern`
 

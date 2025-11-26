@@ -8,13 +8,27 @@
     "type": "git",
     "url": "https://github.com/tobiasorth1/text-highlighter"
   },
-  "description": "Highlight text based on custom rules (regex/string) with configurable colors.",
+  "description": "Highlight text, TODOs, and logs with custom colors and regex patterns. Never miss a critical comment again.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
+    "Programming Languages",
+    "Visualization",
     "Other"
+  ],
+  "keywords": [
+    "highlight",
+    "text",
+    "color",
+    "regex",
+    "todo",
+    "annotation",
+    "log",
+    "decorator",
+    "pattern",
+    "search"
   ],
   "activationEvents": [
     "onStartupFinished"

@@ -10,7 +10,6 @@ suite('Pattern Verification Test', () => {
     "problemMessage": "TODO item found",
     "severity": "error",
     "isRegex": false,
-    "isCaseSensitive": true,
     "languages": ["plaintext", "python"]
 }`;
 
