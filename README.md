@@ -2,7 +2,7 @@
 
 **Highlight what matters.** Instantly spot TODOs, critical errors, and custom patterns in your code.
 
-![picture](project_icon_small.jpg)
+<img src="https://raw.githubusercontent.com/tobiasorth1/text-highlighter/main/project_icon_small.jpg" alt="Text Highlighter Icon" width="200"/>
 
 
 ## Why Text Highlighter?
