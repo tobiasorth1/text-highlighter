@@ -1,7 +1,13 @@
 {
   "name": "text-highlighter",
   "displayName": "Text Highlighter",
-  "publisher": "antigravity",
+  "icon": "project_icon.png",
+  "publisher": "tobiasorthproduction",
+  "author": "Tobias Orth",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tobiasorth1/text-highlighter"
+  },
   "description": "Highlight text based on custom rules (regex/string) with configurable colors.",
   "version": "0.0.1",
   "engines": {

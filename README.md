@@ -9,7 +9,6 @@ A VSCode extension to highlight text based on custom rules (string literals or r
 - **Configurable Severity**: Set diagnostic severity (error, warning, information, hint).
 - **Custom Messages**: Define custom problem messages for each rule.
 - Support for Regular Expressions.
-- Case sensitivity toggle.
 - Customizable background colors (text color remains unchanged by default).
 
 ## Configuration
@@ -55,6 +54,7 @@ Add the following to your `settings.json`:
 
 **Regex Tips:**
 - Use `^` and `$` for line anchors (multiline mode is enabled)
+- Be careful with complex regex patterns (e.g., nested quantifiers) as they can impact performance on large files.
 - For lines longer than 72 chars: `^.{73,}$`
 - For matching at start of line: `^pattern`
 
