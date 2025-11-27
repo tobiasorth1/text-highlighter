@@ -25,6 +25,9 @@ export function getMatches(text: string, pattern: string, isRegex: boolean): { i
         let match;
         while ((match = regex.exec(text))) {
             matches.push({ index: match.index, length: match[0].length });
+            if (match[0].length === 0) {
+                regex.lastIndex++;
+            }
         }
     } catch (e) {
         console.error(`Invalid regex pattern: ${pattern}`, e);
@@ -69,7 +72,16 @@ export class Highlighter {
             }
 
             // Check if rule applies to this document
-            const appliesToDoc = rule.languages.some(lang => {
+            let languages = rule.languages;
+            if (typeof languages === 'string') {
+                languages = [languages];
+            }
+
+            const appliesToDoc = languages.some(lang => {
+                // Check for wildcard matching any language
+                if (lang === '*') {
+                    return true;
+                }
                 // Check if it's a language ID match
                 if (lang === docLanguage) {
                     return true;

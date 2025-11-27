@@ -4,8 +4,8 @@ import { getMatches } from '../../highlighter';
 suite('Line Length Regex Test', () => {
     test('Pattern .{73,} without anchors', () => {
         const text = `Short line
-This is a line with exactly 72 characters - it should NOT be matched!!
-This is a line with exactly 73 characters - it SHOULD be matched here!!!
+This is a line with exactly 72 characters - it should NOT be matched!!XX
+This is a line with exactly 73 characters - it SHOULD be matched here!!!X
 Another short line`;
 
         const matches = getMatches(text, '.{73,}', true);
@@ -22,8 +22,8 @@ Another short line`;
 
     test('Pattern ^.{73,}$ with anchors', () => {
         const text = `Short line
-This is a line with exactly 72 characters - it should NOT be matched!!
-This is a line with exactly 73 characters - it SHOULD be matched here!!!
+This is a line with exactly 72 characters - it should NOT be matched!!XX
+This is a line with exactly 73 characters - it SHOULD be matched here!!!X
 Another short line`;
 
         const matches = getMatches(text, '^.{73,}$', true);
