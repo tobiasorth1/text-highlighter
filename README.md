@@ -29,15 +29,15 @@ Add this to your `settings.json` to get started immediately:
 "textHighlighter.rules": [
   {
     "pattern": "TODO",
-    "backgroundColor": "rgba(255, 200, 0, 0.5)",
+    "backgroundColor": "yellow",
     "problemMessage": "TODO item found",
     "severity": "warning",
     "languages": ["*"]
   },
   {
     "pattern": "FIXME",
-    "backgroundColor": "rgba(255, 0, 0, 0.6)",
-    "color": "#FFFFFF",
+    "backgroundColor": "darkblue",
+    "color": "rgba(255, 255, 0, 0.3)",
     "severity": "error",
     "languages": ["*.md", "*.txt"],
     "isRegex": true
@@ -59,7 +59,7 @@ Add this to your `settings.json` to get started immediately:
 |-----------|------|----------|---------|-------------|
 | `pattern` | string | Yes | - | Text or regex pattern to match |
 | `languages` | array | Yes | - | Language IDs (e.g., `"python"`) or file patterns (e.g., `"*.md"`) |
-| `backgroundColor` | string | No | `"rgba(255, 255, 0, 0.3)"` | CSS background color |
+| `backgroundColor` | string | No | `"rgba(255, 255, 0, 0.3)"` | CSS background color. You can use, e.g. `red` |
 | `color` | string | No | undefined | CSS text color (leave empty to preserve syntax highlighting) |
 | `problemMessage` | string | No | `"Pattern match: {pattern}"` | Custom message for Problems tab |
 | `severity` | string | No | `"error"` | Diagnostic severity: `error`, `warning`, `information`, or `hint` |
