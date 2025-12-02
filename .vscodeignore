@@ -13,3 +13,5 @@ agents.md
 *.vsix
 project_icon.png
 text_highlighter_icon.png
+
+.github/**

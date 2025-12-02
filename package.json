@@ -9,7 +9,7 @@
     "url": "https://github.com/tobiasorth1/text-highlighter"
   },
   "description": "Highlight text, TODOs, and logs with custom colors and regex patterns. Never miss a critical comment again.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.80.0"
   },

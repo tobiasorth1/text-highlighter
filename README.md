@@ -59,7 +59,7 @@ Add this to your `settings.json` to get started immediately:
 |-----------|------|----------|---------|-------------|
 | `pattern` | string | Yes | - | Text or regex pattern to match |
 | `languages` | array | Yes | - | Language IDs (e.g., `"python"`) or file patterns (e.g., `"*.md"`) |
-| `backgroundColor` | string | No | `"rgba(255, 255, 0, 0.3)"` | CSS background color. You can use, e.g. `red` |
+| `backgroundColor` | string | No | `"rgba(255, 255, 0, 0.3)"` | CSS background color. You can use, e.g. `red`, `darkblue` |
 | `color` | string | No | undefined | CSS text color (leave empty to preserve syntax highlighting) |
 | `problemMessage` | string | No | `"Pattern match: {pattern}"` | Custom message for Problems tab |
 | `severity` | string | No | `"error"` | Diagnostic severity: `error`, `warning`, `information`, or `hint` |
@@ -71,6 +71,10 @@ Add this to your `settings.json` to get started immediately:
 - Use `^` and `$` for line anchors (multiline mode is enabled)
 - For lines longer than 72 chars: `^.{73,}$`
 - For matching at start of line: `^pattern`
+
+## Found Bugs or Want to Contribute?
+
+Head to https://github.com/tobiasorth1/text-highlighter/issues and report your problems as issue. Please describe your workflow and document what is not working. Or fix the problem yourself and open a PR.
 
 ## Development Instructions
 
