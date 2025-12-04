@@ -9,7 +9,7 @@
     "url": "https://github.com/tobiasorth1/text-highlighter"
   },
   "description": "Highlight text, TODOs, and logs with custom colors and regex patterns. Never miss a critical comment again.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -40,7 +40,45 @@
       "properties": {
         "textHighlighter.rules": {
           "type": "array",
-          "default": [],
+          "default": [
+            {
+              "pattern": "TODO",
+              "color": "gold",
+              "severity": "information",
+              "problemMessage": "TODO item found",
+              "languages": [
+                "*"
+              ]
+            },
+            {
+              "pattern": "FIXME",
+              "color": "red",
+              "severity": "warning",
+              "problemMessage": "FIXME - needs attention",
+              "languages": [
+                "*"
+              ]
+            },
+            {
+              "pattern": "NOTE",
+              "color": "dodgerblue",
+              "severity": "information",
+              "problemMessage": "Note for developers",
+              "languages": [
+                "*"
+              ]
+            },
+            {
+              "pattern": "^.{101,}$",
+              "backgroundColor": "lightpink",
+              "severity": "information",
+              "problemMessage": "Line exceeds 100 characters",
+              "isRegex": true,
+              "languages": [
+                "*"
+              ]
+            }
+          ],
           "description": "Rules for highlighting text.",
           "items": {
             "type": "object",

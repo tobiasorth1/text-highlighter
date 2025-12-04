@@ -66,6 +66,12 @@ export class Highlighter {
         const docLanguage = activeEditor.document.languageId;
         const docFileName = activeEditor.document.fileName;
 
+        // Exclude VS Code configuration files (User and Workspace settings)
+        // Matches .../.vscode/settings.json or .../User/settings.json (cross-platform)
+        if (/[\\/](?:\.vscode|User)[\\/]settings\.json$/.test(docFileName)) {
+            return;
+        }
+
         rules.forEach(rule => {
             if (!rule.pattern || !rule.languages) {
                 return;
