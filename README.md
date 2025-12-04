@@ -14,46 +14,63 @@ Stop scanning through thousands of lines of code to find that one `NOTE` or `FIX
 - 🚦 **Instant Feedback**: See matches in your Problems tab so you can navigate to them instantly.
 - 🎨 **Fully Customizable**: Control background colors, text colors, and even add custom messages.
 
-## Features
-
-- **Multi-Pattern Highlighting**: Define unlimited rules with unique colors.
-- **Problem Tab Integration**: Matches appear as Errors, Warnings, Info, or Hints.
-- **Case-Insensitive Matching**: By default (configurable).
-- **Performance Focused**: Optimized for large files.
-
 ## Quick Start
 
-Add this to your `settings.json` to get started immediately:
+After installing the extension, add these recommended rules to your VS Code `settings.json`:
+
+1. Open VS Code Settings (`Cmd+,` or `Ctrl+,`)
+2. Click "Open Settings (JSON)" in the top-right corner
+3. Add the following configuration:
 
 ```json
 "textHighlighter.rules": [
   {
     "pattern": "TODO",
-    "backgroundColor": "yellow",
+    "backgroundColor": "gold",
+    "severity": "information",
     "problemMessage": "TODO item found",
-    "severity": "warning",
     "languages": ["*"]
   },
   {
     "pattern": "FIXME",
-    "backgroundColor": "darkblue",
-    "color": "rgba(255, 255, 0, 0.3)",
-    "severity": "error",
-    "languages": ["*.md", "*.txt"],
-    "isRegex": true
+    "backgroundColor": "red",
+    "severity": "warning",
+    "problemMessage": "FIXME - needs attention",
+    "languages": ["*"]
   },
   {
-    "pattern": "^.{73,}$",
-    "backgroundColor": "#FF000050",
-    "problemMessage": "Line exceeds 72 characters",
-    "severity": "error",
+    "pattern": "NOTE",
+    "backgroundColor": "dodgerblue",
+    "severity": "information",
+    "problemMessage": "Note for developers",
+    "languages": ["*"]
+  },
+  {
+    "pattern": "^.{101,}$",
+    "backgroundColor": "lightpink",
+    "severity": "information",
+    "problemMessage": "Line exceeds 100 characters",
     "isRegex": true,
-    "languages": ["plaintext"]
+    "languages": ["*"]
   }
 ]
 ```
 
-### Configuration Parameters
+These rules will highlight:
+- **TODO** with a gold background
+- **FIXME** with a red background
+- **NOTE** with a dodgerblue background
+- Lines longer than 100 characters with a lightpink background
+
+## Features
+
+- **Multi-Pattern Highlighting**: Define unlimited rules with unique colors.
+- **Problem Tab Integration**: Matches appear as Errors, Warnings, Info, or Hints.
+- **Case-Insensitive Matching**: By default.
+- **Performance Focused**: Optimized for large files.
+- **Instant Results**: Comes with TODO, FIXME, and NOTE highlighting out of the box.
+
+## Configuration Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
@@ -71,6 +88,86 @@ Add this to your `settings.json` to get started immediately:
 - Use `^` and `$` for line anchors (multiline mode is enabled)
 - For lines longer than 72 chars: `^.{73,}$`
 - For matching at start of line: `^pattern`
+
+## Cookbook / Common Patterns
+
+Here are some useful patterns you can copy and paste into your `settings.json` to get started.
+
+### Log Levels
+Highlight common log levels to make reading log files easier.
+
+```json
+{
+  "pattern": "[ERROR]",
+  "color": "red",
+  "languages": ["*"]
+},
+{
+  "pattern": "[WARN]",
+  "color": "orange",
+  "languages": ["*"]
+},
+{
+  "pattern": "[WARNING]",
+  "color": "orange",
+  "languages": ["*"]
+},
+{
+  "pattern": "[INFO]",
+  "color": "cyan",
+  "languages": ["*"]
+},
+{
+  "pattern": "[DEBUG]",
+  "color": "gray",
+  "languages": ["*"]
+}
+```
+
+### Security & Secrets
+Help prevent accidental commits of sensitive data.
+
+```json
+{
+  "pattern": "(?i)(api_?key|token)\\s*[:=]\\s*['\"][a-zA-Z0-9\\-_]{16,}['\"]",
+  "color": "red",
+  "problemMessage": "Potential API Key found",
+  "severity": "error",
+  "isRegex": true,
+  "languages": ["*"]
+},
+{
+  "pattern": "AKIA[0-9A-Z]{16}",
+  "color": "red",
+  "problemMessage": "AWS Access Key ID found",
+  "severity": "error",
+  "isRegex": true,
+  "languages": ["*"]
+},
+{
+  "pattern": "-----BEGIN.*PRIVATE KEY-----",
+  "color": "red",
+  "problemMessage": "Private Key found",
+  "severity": "error",
+  "isRegex": true,
+  "languages": ["*"]
+}
+```
+
+### Code Quality
+Spot potential issues before they become problems.
+
+```json
+{
+  "pattern": "[ \\t]+$",
+  "backgroundColor": "red",
+  "problemMessage": "Trailing whitespace",
+  "severity": "information",
+  "isRegex": true,
+  "languages": ["*"]
+}
+```
+
 
 ## Found Bugs or Want to Contribute?
 
